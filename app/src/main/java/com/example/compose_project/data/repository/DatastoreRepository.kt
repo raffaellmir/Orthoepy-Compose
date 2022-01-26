@@ -1,4 +1,4 @@
-package com.example.compose_project.repository
+package com.example.compose_project.data.repository
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -23,14 +23,13 @@ class DatastoreRepository @Inject constructor(@ApplicationContext private val co
 
     suspend fun increaseLetterCount (letters: Int) {
         context.datastore.edit { counter ->
-            val currentCounterValue = counter[letterCounter] ?: 2
+            val currentCounterValue = counter[letterCounter] ?: 0
             counter[letterCounter] = currentCounterValue + letters
         }
     }
 
     val getLetterCountFlow: Flow<Int> = context.datastore.data
         .map { preferences ->
-            preferences[letterCounter] ?: 2
-
+            preferences[letterCounter] ?: 0
         }
 }

@@ -16,7 +16,7 @@ fun BottomNavGraph(navController: NavHostController) {
         navController = navController,
         startDestination = BottomBarScreen.Training.route
     ) {
-        composable(route = BottomBarScreen.Training.route) { TrainingScreen( hiltViewModel() ) }
+        composable(route = BottomBarScreen.Training.route) { TrainingScreen( /*hiltViewModel()*/ ) }
         composable(route = BottomBarScreen.Dictionary.route) { DictionaryScreen() }
         composable(route = BottomBarScreen.Store.route) { StoreScreen() }
     }

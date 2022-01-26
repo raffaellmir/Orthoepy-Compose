@@ -1,8 +1,11 @@
 package com.example.compose_project.ui.training
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -12,14 +15,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.compose_project.data.database.Word
 import com.example.compose_project.ui.main.MainViewModel
 
 @Composable
-fun TrainingScreen(viewModel: MainViewModel) {
+fun TrainingScreen(viewModel: MainViewModel = hiltViewModel()) {
 
     val textState = remember { mutableStateOf(TextFieldValue("")) }
-
-    val letterCount: Int? = viewModel.getLetterCount.observeAsState().value
+    val letterCount : Int? = viewModel.getLetterCount.observeAsState().value
+    val words : List<Word>? = viewModel.getAllWords.observeAsState().value
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -28,7 +33,7 @@ fun TrainingScreen(viewModel: MainViewModel) {
     ) {
 
         Text(
-            text = "Букв: $letterCount",
+            text = "Букв: $letterCount Слово: ${words?.get(2)?.wordText}",
             color = Color.Black
         )
 
