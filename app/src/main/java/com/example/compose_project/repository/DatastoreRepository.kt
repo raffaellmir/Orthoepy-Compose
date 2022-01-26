@@ -28,8 +28,9 @@ class DatastoreRepository @Inject constructor(@ApplicationContext private val co
         }
     }
 
-    val letterCountFlow: Flow<Int> = context.datastore.data
+    val getLetterCountFlow: Flow<Int> = context.datastore.data
         .map { preferences ->
             preferences[letterCounter] ?: 2
+
         }
 }

@@ -1,4 +1,4 @@
-package com.example.compose_project.screens
+package com.example.compose_project.ui.main
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
@@ -18,7 +18,7 @@ fun MainScreen() {
 
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = { BottomBar(navController = navController)}
+        bottomBar = { BottomBar(navController = navController) }
     ) {
         BottomNavGraph(navController = navController)
     }

@@ -13,8 +13,6 @@ class MainViewModel @Inject constructor(
     private val datastoreRepository: DatastoreRepository
     ) : ViewModel() {
 
-    private var letterCount: MutableLiveData<Int> = MutableLiveData(2)
-
     fun increaseLetterCount(letters: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             datastoreRepository.increaseLetterCount(letters)
@@ -22,6 +20,6 @@ class MainViewModel @Inject constructor(
 
     }
 
-    val getLetterCount = datastoreRepository.letterCountFlow.asLiveData()
+    val getLetterCount = datastoreRepository.getLetterCountFlow.asLiveData()
 }
 

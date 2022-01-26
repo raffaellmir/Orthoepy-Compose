@@ -1,4 +1,4 @@
-package com.example.compose_project.screens
+package com.example.compose_project.ui.training
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
