@@ -1,4 +1,4 @@
-package com.example.compose_project
+package com.example.compose_project.ui.main
 
 import androidx.lifecycle.*
 import com.example.compose_project.repository.DatastoreRepository

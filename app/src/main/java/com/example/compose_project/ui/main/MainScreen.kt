@@ -12,7 +12,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.compose_project.BottomBarScreen
 import com.example.compose_project.BottomNavGraph
-import com.example.compose_project.MainViewModel
 
 @Composable
 fun MainScreen() {
@@ -53,9 +52,7 @@ fun RowScope.AddItem(
     navController: NavHostController
 ) {
     BottomNavigationItem(
-        label = {
-            Text(text = screen.title)
-        },
+        label = { Text(text = screen.title) },
         icon = {
             Icon(
                 imageVector = screen.icon,

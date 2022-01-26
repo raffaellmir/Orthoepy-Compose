@@ -25,7 +25,6 @@ class DatastoreRepository @Inject constructor(@ApplicationContext private val co
         context.datastore.edit { counter ->
             val currentCounterValue = counter[letterCounter] ?: 2
             counter[letterCounter] = currentCounterValue + letters
-            println("Datastore call: ${counter[letterCounter]}")
         }
     }
 
